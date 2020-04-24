@@ -27,5 +27,5 @@ Browse to the `cropshot` cloned repository directory and select it to add the
 link to Chrome's main toolbar.
 And there you go!!
 
-##License
+## License
 cropshot is a truly opensource chrome extension which will always be free under the BSD 3 License.
