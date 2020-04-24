@@ -53,7 +53,9 @@ async function writeToClipboard(imageBlob) {
         'image/png': imageBlob
       })
     ]);
-	
+    chrome.tabs.getCurrent(function(tab) {
+      tOld=tab.id;
+    });
 	readFromClipboard();
 	
   } catch (error) {
@@ -95,7 +97,8 @@ async function readFromClipboard() {
 				  chrome.tabs.executeScript(tab.id, {
 					code: 'document.execCommand("paste")'
 				  }, processResult);
-				});					
+        });
+        //chrome.tabs.remove(tOld);					
 				}, 2000);
 		});
 
@@ -118,7 +121,7 @@ $(function() {
 	
   $('a[href=#save]').click(function() {
     $('#toolbar').hide();
-    chrome.tabs.remove(tab.id);
+    //chrome.tabs.remove(tOld);
     chrome.extension.sendMessage({ action: 'capture' });
     return false;
   });
