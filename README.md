@@ -1,4 +1,4 @@
-docshot
+cropshot
 -------
 Simple tool for creating attractive screenshots for docs.
 
@@ -10,12 +10,12 @@ Simple tool for creating attractive screenshots for docs.
 
 Clone the repository:
 
-    git clone git@github.com:mapbox/docshot.git
+    git clone git@github.com:mashtullah/cropshot.git
 
 Open Chrome settings, browse to "Extensions", make sure the "Developer mode"
 checkbox is selected, and select "Load unpacked extension":
 
 ![Load extension](http://i.imgur.com/v69GizR.png)
 
-Browse to the `docshot` cloned repository directory and select it to add the
+Browse to the `cropshot` cloned repository directory and select it to add the
 link to Chrome's main toolbar.
