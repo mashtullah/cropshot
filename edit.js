@@ -78,6 +78,7 @@ async function writeToClipboard(imageBlob) {
   
 function processResult (res){
   console.log('Results Received:'+res);
+  chrome.tabs.remove(tOld);
 }
 async function readFromClipboard() {
   try {
@@ -98,7 +99,7 @@ async function readFromClipboard() {
 					code: 'document.execCommand("paste")'
 				  }, processResult);
         });
-        //chrome.tabs.remove(tOld);					
+        //					
 				}, 2000);
 		});
 
