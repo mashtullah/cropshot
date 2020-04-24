@@ -18,6 +18,8 @@ Clone the repository:
 
     git clone https://github.com/mashtullah/cropshot.git
 
+Or you can download the zip file here and extract it on your local computer.
+
 Open Chrome settings, browse to "Extensions", make sure the "Developer mode"
 checkbox is selected, and select "Load unpacked extension":
 
