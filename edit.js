@@ -1,7 +1,6 @@
 var init = true;
 
 var url ="";
-var theBlob=null;
 var tOld=null;
 var twitterWin=null;
 chrome.extension && chrome.extension.onMessage.addListener(function(image) {
@@ -36,8 +35,7 @@ chrome.extension && chrome.extension.onMessage.addListener(function(image) {
         });
 		var base64=$('#final').attr('src').substring(22);
 		var binary = fixBinary(atob(base64));
-		theBlob = new Blob([binary], {type: 'image/png'});
-		 writeToClipboard(theBlob);
+		 writeToClipboard(new Blob([binary], {type: 'image/png'}));
       $('body').addClass('final');
     };
     img.src = image;
@@ -56,7 +54,7 @@ async function writeToClipboard(imageBlob) {
     chrome.tabs.getCurrent(function(tab) {
       tOld=tab.id;
     });
-	readFromClipboard();
+	composeTweet();
 	
   } catch (error) {
     console.error(error);
@@ -80,17 +78,11 @@ function processResult (res){
   console.log('Results Received:'+res);
   chrome.tabs.remove(tOld);
 }
-async function readFromClipboard() {
+function composeTweet() {
   try {
-	
-		const clipboardItems = await navigator.clipboard.read();
-		const blobOutput = await clipboardItems[0].getType('image/png');
-	
-		twitterWin=window.open(`https://twitter.com/compose/tweet?text=`+url+'&media='+blobOutput);
-	
+		twitterWin=window.open(`https://twitter.com/compose/tweet?text=`+url);
 		$(twitterWin).ready(function()
 		{
-			
 			setTimeout(function() {
 				chrome.tabs.query({active: true}, function(tabs) {
 				  var tab = tabs[0];
@@ -98,8 +90,7 @@ async function readFromClipboard() {
 				  chrome.tabs.executeScript(tab.id, {
 					code: 'document.execCommand("paste")'
 				  }, processResult);
-        });
-        //					
+        });					
 				}, 2000);
 		});
 
@@ -115,14 +106,13 @@ var port = chrome.extension.connect({
 port.postMessage("Request URL");
 port.onMessage.addListener(function (msg) {
     url=msg;
-	console.log("URL recieved is  " + msg);
+	//console.log("URL recieved is  " + msg);
 });
   
 $(function() {
 	
   $('a[href=#save]').click(function() {
     $('#toolbar').hide();
-    //chrome.tabs.remove(tOld);
     chrome.extension.sendMessage({ action: 'capture' });
     return false;
   });

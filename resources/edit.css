@@ -89,7 +89,7 @@ a {
 .mask    { background:rgba(0,0,0,.25); }
 
 #base    { opacity:.25; }
-#cropped { z-index:0; }
+#cropped { z-index:15; } /* was zero*/
 #mask    { z-index:1; }
 #popped  { z-index:2; }
 
