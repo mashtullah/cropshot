@@ -1,7 +1,7 @@
 {
-  "name": "docshot",
-  "version": "0.0.1",
-  "description": "Tool for creating simple screenshots for docs.",
+  "name": "cropshot",
+  "version": "0.0.3",
+  "description": "Tool for creating simple screenshots for websites.",
   "browser_action": {
     "default_icon": "icon/toolbar.png"
   },
