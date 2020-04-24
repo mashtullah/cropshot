@@ -28,4 +28,4 @@ link to Chrome's main toolbar.
 And there you go!!
 
 ## License
-cropshot is a truly opensource chrome extension which will always be free under the BSD 3 License.
+cropshot is a truly opensource chrome extension which will always be free under the BSD 3 License. You can feel free to use it for commercial or non commercial purposes. 
