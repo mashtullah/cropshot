@@ -1,7 +1,7 @@
 cropshot
 -------
-Simple tool for creating attractive screenshots for docs.
-
+This is a simple chrome extension for creating attractive screenshots from webpages on google chrome browser.
+![Crop screenshot](https://imgur.com/hFVkmqe)
 - Uses a consistent default crop size.
 - Makes it easy to adjust crop size in increments of 5px.
 - Easy to highlight an area of the screenshot.
