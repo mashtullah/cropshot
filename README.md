@@ -1,6 +1,6 @@
 cropshot
 -------
-Have you ever wanted to tweet a webpage but didnt like the screeshot twitter automattically uses as the image of the link?🤨... at times, which mostly happens... you have no choice but to stick with it😕.
+Have you ever wanted to tweet a webpage but didnt like the screeshot twitter automatically uses as the image of the link?🤨... at times, which mostly happens... you have no choice but to stick with it😕.
 
 This chrome extension has come to your rescue!
 
@@ -10,7 +10,7 @@ This is a simple chrome extension for creating attractive screenshots from webpa
 - Makes it easy to adjust crop size in increments of 5px.
 - Easy to highlight an area of the screenshot to the desired area.
 - No need for twitter API Keys or any configuration after installing the extension.
-- This extension does not post any tweets or media automatically, you have controll of what you want to tweet, this extension just facilitates it...
+- This extension does not post any tweets or media automatically, you have control of what you want to tweet, this extension just facilitates it...
 
 ## Installation
 
