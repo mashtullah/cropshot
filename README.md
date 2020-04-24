@@ -1,6 +1,9 @@
 cropshot
 -------
-Have you ever wanted to tweet a webpage but didnt like the screeshot twitter automattically uses as the image of the link?🤨... at times, which mostly happens... you have no choice but to stick with it😕. This chrome extension has come to your rescue!
+Have you ever wanted to tweet a webpage but didnt like the screeshot twitter automattically uses as the image of the link?🤨... at times, which mostly happens... you have no choice but to stick with it😕.
+
+This chrome extension has come to your rescue!
+
 This is a simple chrome extension for creating attractive screenshots from webpages on google chrome browser, then opens a new tab with twitter as the url and composes a new tweet containing the website url and the screenshot you cropped from that page, waiting for your approval...😎.
 ![Crop screenshot](https://i.imgur.com/hFVkmqe.png)
 - Uses a consistent default crop size.
