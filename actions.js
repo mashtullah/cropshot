@@ -7,7 +7,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
       chrome.tabs.create({'url':'edit.html'}, function(t) {
         tabid = t.id;
         // Slight delay to allow tab time to add listener.
-        setTimeout(function() { chrome.tabs.sendMessage(tabid,image);}, 100);
+        setTimeout(function() { chrome.tabs.sendMessage(tabid,image);}, 300);
       });
     });
   });

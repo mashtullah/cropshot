@@ -1,6 +1,6 @@
 {
   "name": "cropshot",
-  "version": "0.0.3",
+  "version": "1.0.9",
   "author": "Mashtullah Shavalullah <dmusuda@gmail.com>",
   "description": "Tool for creating simple screenshots for websites.",
   "browser_action": {
@@ -21,7 +21,7 @@
   "permissions": [
     "tabs",
 	"clipboardRead",
-	"clipboardWrite",
+  "clipboardWrite",
     "<all_urls>",
 	"activeTab"
   ]

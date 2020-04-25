@@ -1,6 +1,7 @@
 var init = true;
 
 var url ="";
+var currTab=null;
 var tOld=null;
 var twitterWin=null;
 chrome.extension && chrome.extension.onMessage.addListener(function(image) {
@@ -25,7 +26,7 @@ chrome.extension && chrome.extension.onMessage.addListener(function(image) {
     // Copy the image contents to the canvas
     var ctx = canvas.getContext('2d');
     var img = new Image();
-    img.onload = function() {
+    img.onload =async function() {
       ctx.drawImage(img, l, t, w, h, 0, 0, w, h);
       $('#final')
         .attr('src', canvas.toDataURL('image/png'))
@@ -33,9 +34,9 @@ chrome.extension && chrome.extension.onMessage.addListener(function(image) {
           marginLeft: -0.5 * w + 'px', 
           marginTop: -0.5 * h + 'px'
         });
-		var base64=$('#final').attr('src').substring(22);
-		var binary = fixBinary(atob(base64));
-		 writeToClipboard(new Blob([binary], {type: 'image/png'}));
+    const url =document.getElementById('final').src;
+		const blobInput = await loadBlob(url);
+		 writeToClipboard(blobInput);
       $('body').addClass('final');
     };
     img.src = image;
@@ -43,7 +44,10 @@ chrome.extension && chrome.extension.onMessage.addListener(function(image) {
 });
 
 
-
+async function loadBlob(fileName) {
+  const fetched = await fetch(fileName);
+  return await fetched.blob();
+}
 async function writeToClipboard(imageBlob) {
   try {
     await navigator.clipboard.write([
@@ -62,36 +66,31 @@ async function writeToClipboard(imageBlob) {
 }
 
 
-// From http://stackoverflow.com/questions/14967647/ (continues on next line)
-  // encode-decode-image-with-base64-breaks-image (2013-04-21)
-  function fixBinary (bin) {
-    var length = bin.length;
-    var buf = new ArrayBuffer(length);
-    var arr = new Uint8Array(buf);
-    for (var i = 0; i < length; i++) {
-      arr[i] = bin.charCodeAt(i);
-    }
-    return buf;
-  }
   
 function processResult (res){
   console.log('Results Received:'+res);
+  setTimeout(function() {closeTab()}, 2000);
+}
+function closeTab(r){
   chrome.tabs.remove(tOld);
 }
-function composeTweet() {
+async function composeTweet() {
   try {
+   
 		twitterWin=window.open(`https://twitter.com/compose/tweet?text=`+url);
 		$(twitterWin).ready(function()
 		{
 			setTimeout(function() {
 				chrome.tabs.query({active: true}, function(tabs) {
-				  var tab = tabs[0];
-				  tab_title = tab.title;
+          var tab = tabs[0];
+          currTab=tabs[0];
+          tab_title = tab.title;
+          //console.log(tab.url+'pasted at:'+tab_title);
 				  chrome.tabs.executeScript(tab.id, {
 					code: 'document.execCommand("paste")'
 				  }, processResult);
         });					
-				}, 2000);
+				}, 3000);
 		});
 
 		
