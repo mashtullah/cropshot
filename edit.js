@@ -69,7 +69,7 @@ async function writeToClipboard(imageBlob) {
   
 function processResult (res){
   console.log('Results Received:'+res);
-  setTimeout(function() {closeTab()}, 2000);
+  setTimeout(function() {closeTab()}, 3000);
 }
 function closeTab(r){
   chrome.tabs.remove(tOld);
